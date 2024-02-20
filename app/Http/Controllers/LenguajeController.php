@@ -22,29 +22,30 @@ class LenguajeController extends Controller
     {
         Lenguaje::create($request->all());
         // Lenguaje::create(['nombre' => $request->nombre1]);
-        return redirect(route('lenguajes.index'));
+        return redirect(route('lenguajes.index'))->with('success', 'Lenguaje Creado');
     }
 
-    public function edit( $id )
+    public function edit($id)
     {
-        $lenguaje = Lenguaje::find( $id );
-        return view('lenguajes.edit', compact( 'lenguaje' ) );
+        $lenguaje = Lenguaje::find($id);
+        return view('lenguajes.edit', compact('lenguaje'));
     }
 
     public function update($id, Request $request)
     {
-        $lenguaje = Lenguaje::find( $id );
+        $lenguaje = Lenguaje::find($id);
 
         $lenguaje->nombre = $request->nombre;
 
         $lenguaje->save();
 
-        return redirect(route('lenguajes.index'));
+        return redirect(route('lenguajes.index'))->with('info', 'Lenguaje Editado');
     }
 
-    public function destroy( $id ){
-        $lenguaje = Lenguaje::find( $id );
+    public function destroy($id)
+    {
+        $lenguaje = Lenguaje::find($id);
         $lenguaje->delete();
-        return redirect(route('lenguajes.index'));
+        return redirect(route('lenguajes.index'))->with('warning', 'Lenguaje Eliminado');
     }
 }

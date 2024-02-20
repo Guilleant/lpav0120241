@@ -1,4 +1,4 @@
-@extends('layouts.principal')
+@extends('layouts.app')
 
 @push('estilos')
     <link href="{{ asset('assets/DataTables/datatables.min.css') }}" rel="stylesheet">

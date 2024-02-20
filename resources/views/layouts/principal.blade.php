@@ -21,6 +21,7 @@
     </header>
 
     <main class="container" style="margin-top: 50px">
+        @include('layouts.flash-message')
         @yield('content')
     </main>
 
